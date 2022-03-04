@@ -1,0 +1,108 @@
+
+.drip {
+    
+    --drip-col:     var(--nose-color);
+    --hi-color:     var(--lid-color);
+    --lo-color:     var(--dark);
+
+    --drip-size:        20px;
+    --drip-length:      150px;
+    --frame-width:      200px;
+    --drip-duration:    1400ms;
+    
+    
+/******************************************/
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.drip::before, .drip::after {
+
+    --w2: calc(var(--drip-size)/2);
+    --L-dur: 100ms;
+    --S-dur: 173ms;
+    --D-dur: var(--drip-duration);
+    --fw: var(--frame-width);
+    --fL: calc(-0.6 * var(--fw));
+    --fR: calc( 1.1 * var(--fw));
+
+    content: "";
+    position: absolute;
+    transform-origin: 50% 0%;
+    top: calc(-1 * var(--drip-size));
+    height: 0px;
+    width: var(--drip-size);
+    border-radius: 0 0 var(--w2) var(--w2);
+    background-color: var(--drip-col);
+    transition-delay: 0ms;
+    transition: height linear 0ms;
+    animation: ani-left  var(--L-dur) 0ms linear infinite,
+               ani-scale var(--S-dur) 0ms linear infinite;
+
+}
+
+.drip::before {
+    
+    box-shadow: 30px -30px 0  -8px var(--lo-color,#000),
+               -10px -45px 0  -5px var(--drip-col,#c30),
+               
+calc(var(--fL) + 10px) -25px 0 -5px var(--lo-color,#000),
+calc(var(--fL) -  0px) -15px 0  1px var(--drip-col,#c30),
+calc(var(--fL) - 20px) -35px 0 -8px var(--drip-col,#c30),
+                
+calc(var(--fR) +  0px) -45px 0  2px var(--lo-color,#000),
+calc(var(--fR) + 10px) -65px 0  2px var(--drip-col,#c30);
+                
+    --L-dur: 87ms;
+    --S-dur: 59ms;
+
+}
+
+.drip::after {
+    
+    box-shadow: 10px -23px 0  -1px var(--hi-color,#fff),
+               -30px -40px 0  -8px var(--lo-color,#000),
+                
+calc(var(--fR) - 20px) -22px 0  -8px var(--hi-color,#fff),
+calc(var(--fR) +  0px)  -9px 0   3px var(--drip-col,#c30),
+calc(var(--fR) + 25px)  -8px 0  -8px var(--lo-color,#000);
+               
+    --L-dur: 47ms;
+    --S-dur: 139ms;
+    
+}
+
+.drip:hover::before {
+  height: var(--drip-length);
+  transition: height ease-out var(--D-dur);
+  animation-play-state: paused;
+}
+
+.drip:hover::after {
+    height: calc(0.6 * var(--drip-length));
+    transition-delay: calc(0.2 * var(--D-dur));
+    transition: height ease-out calc(1.4 * var(--D-dur));
+    animation-play-state: paused;
+}
+
+@keyframes ani-left {
+    0% {
+        left: calc(-0.5 * var(--fw));
+    }
+    100% {
+        left: calc(1.8 * var(--fw));
+    }
+}
+
+@keyframes ani-scale {
+    0% {
+        transform: scale(0.6);
+    }
+    99% {
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(2.2);
+    }
+}
