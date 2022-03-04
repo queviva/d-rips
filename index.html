@@ -1,8 +1,9 @@
 <!doctype html><html lang="en">
 
-<head><title>sketches</title>
+<head><title>d~rips</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="d-rips.css">
 <style id="demoStyles">
 
 @font-face {
@@ -11,47 +12,8 @@
 }
 
 :root {
-    
-    --circ-h: 80;
-    --circ-s: 100%;
-    --circ-l: 90%;
-    --circ-a: 1;
-    
-    --lightness: hsl(
-        var(--circ-h),
-        var(--circ-s),
-        var(--circ-l)
-    );
-    
-    --midness: hsl(
-        var(--circ-h),
-        calc(0.5 * var(--circ-s)),
-        calc(0.7 * var(--circ-l))
-    );
-    
-    --darkness: hsl(
-        var(--circ-h),
-        var(--circ-s),
-        calc(0.35 * var(--circ-l))
-    );
-    
-    --blackness: hsl(
-        var(--circ-h),
-        var(--circ-s),
-        calc(0.20 * var(--circ-l))
-    );
-                
-    --main-color: var(--lightness);
-    --greyed-out: var(--darkness);
     --back-color: #666;
     --holder-back: #111;
-    --faded-txt: hsla(
-        var(--circ-h),
-        var(--circ-s),
-        var(--midness),
-        0.5
-    );
-    
 }
 
 * {
@@ -69,6 +31,35 @@ body {
 }
 
 .holder {
+    
+    --nose-hsla: '80 100 90 1';
+    
+    --lightness: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        var(--nose-l)
+    );
+    
+    --midness: hsl(
+        var(--nose-h),
+        calc(0.5 * var(--nose-s)),
+        calc(0.7 * var(--nose-l))
+    );
+    
+    --darkness: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        calc(0.35 * var(--nose-l))
+    );
+    
+    --blackness: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        calc(0.20 * var(--nose-l))
+    );
+                
+    --main-color: var(--lightness);
+    --greyed-out: var(--darkness);
     
 	position: relative;
     color: var(--main-color);
@@ -205,36 +196,14 @@ b {
 <style id="svgStyles">
 #frame {
     
-    --nose-hsla: '80 100 40 1';
+    --lid-color: var(--lightness);
+    --label-color: var(--lightness);
     
-    --nose-color: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
+    --body-color: var(--midness);
     
-    --dark: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.4 * var(--nose-l))
-    );
+    --RX-color: var(--midness);
     
-    --lid-color: #ddd;
-    
-    --body-color: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
-    
-    --RX-color: hsla(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l),
-        0.2
-    );
-    
-    --outline-color: var(--dark);
+    --outline-color: var(--blackness);
     
     height: 300px;
     width:  200px;
@@ -242,13 +211,22 @@ b {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    background-color: var(--back-color);
+    background-color: hsl(
+        0, 0%, 40%
+    );
     
-    border: 10px solid var(--dark);
+    border: 10px solid var(--blackness);
+    
     
 }
+
+.d-rip {
+    --drip-col: var(--midness);
+    --lo-color: var(--blackness);
+    --hi-color: var(--lightness);
+}
+
 </style>
-<link rel="stylesheet" href="d-rips.css">
 <script defer src="nanopicker.js"></script>
 </head>
 
@@ -256,29 +234,29 @@ b {
 <div class="holder">
     
   <div demo class="qr">
-    <div id="frame" class="d-rip" data-nose>
+    <div id="frame" class="d-rip" data-nose=".holder">
       <svg viewBox="0 0 200 300"
-        style="height:100%;width: 100%;"
+        style="height:100%;width:100%;"
       >
         <use id="rex" xlink:href="../ikons/rex.svg#ikon"
          transform="matrix(1.55 0 0 1.55 100 180)"/>
         <ellipse cx="100" cy="310" rx="150" ry="22"
-         fill="var(--dark)"/>
+         fill="var(--blackness)"/>
       </svg>
     </div>
   </div>
   
   <div intro class="qr">
-      <a download href="d-rips.css"><b>d-rips</b></a>
-      is a single-div of css that apparently
+      <a download href="d-rips.css"><b>d-rips.css</b></a>
+      is a <i>single-div</i> of css that apparently
       drops random streaks of paint in any
-      div with the <i>&lt;class="d&#8209;rips"&gt;</i>
+      div with the <i>&lt;class="d&#8209;rip"&gt;</i>
       <br><br>
       mouse-over, or touch, the image to make it
       seeth with color - you might have to try
       more than once since the number and size of
-      streaks may vary widely; as per yoosh,
-      the color changes on scroll
+      streaks varies wildly; as per yoosh,
+      the colors change when scrolling over the image
   </div>
   
   <hr>
@@ -317,9 +295,6 @@ b {
     border-top: 1px;
     border-top-style: solid;
     border-color: var(--darkness);
-    --drip-col: var(--darkness);
-    --lo-color: var(--midness);
-    --hi-color: var(--lightness);
     --frame-width: 400px;
   ">~queviva</div>
 
