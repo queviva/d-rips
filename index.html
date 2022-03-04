@@ -1,0 +1,317 @@
+<!doctype html><html lang="en">
+
+<head><title>sketches</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style id="demoStyles">
+
+@font-face {
+    font-family : luckiest;
+    src : url(luckiest.ttf);
+}
+
+:root {
+    
+    --circ-h: 80;
+    --circ-s: 100%;
+    --circ-l: 90%;
+    --circ-a: 1;
+    
+    --lightness: hsl(
+        var(--circ-h),
+        var(--circ-s),
+        var(--circ-l)
+    );
+    
+    --midness: hsl(
+        var(--circ-h),
+        calc(0.5 * var(--circ-s)),
+        calc(0.7 * var(--circ-l))
+    );
+    
+    --darkness: hsl(
+        var(--circ-h),
+        var(--circ-s),
+        calc(0.35 * var(--circ-l))
+    );
+    
+    --blackness: hsl(
+        var(--circ-h),
+        var(--circ-s),
+        calc(0.20 * var(--circ-l))
+    );
+                
+    --main-color: var(--lightness);
+    --greyed-out: var(--darkness);
+    --back-color: #666;
+    --holder-back: #111;
+    --faded-txt: hsla(
+        var(--circ-h),
+        var(--circ-s),
+        var(--midness),
+        0.5
+    );
+    
+}
+
+* {
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--back-color);
+    font-size: 22px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.holder {
+    
+	position: relative;
+    color: var(--main-color);
+    background-color: var(--holder-back);
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: var(--darkness);
+}
+
+.qa > div > a, .qa > div > a:hover, .qa > div > a:visited,
+.qb > div > a, .qb > div > a:hover, .qb > div > a:visited
+{
+    color: var(--lightness);
+}
+
+pre {
+    background-color: var(--back-color);
+    margin: 0px;
+    padding: 10px;
+    color: var(--blackness);
+    overflow: auto;
+}
+
+hr {
+    border-top: 1px solid var(--blackness);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin: 7px 0px 7px 0px;
+}
+
+b {
+    color: var(--darkness);
+}
+
+.qr {
+    padding: 10px;
+}
+
+.qa, .qb {
+    color: var(--midness);
+}
+
+.qa:after, .qb:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.qa > div, .qb > div {
+    float: left;
+    padding: 10px;
+    height: auto;
+}
+
+.qa > div:nth-child(1),
+.qb > div:nth-child(2) {
+  width: 65%;
+}
+
+.qa > div:nth-child(2),
+.qb > div:nth-child(1) {
+  width: 35%;
+}
+
+.qa > div > b,
+.qb > div > b {
+    color: var(--lightness);
+}
+
+.mobr {
+    display: none;
+}
+
+.hobr {
+    display: inline-block;
+}
+
+.abhr {
+    display: none;
+}
+
+/*possibly a portrait mobi-fone*/
+@media screen and (max-width:500px) {
+
+	.qa > div:nth-child(1),
+	.qa > div:nth-child(2),
+	.qb > div:nth-child(1),
+	.qb > div:nth-child(2)
+	{
+    	width: 100%;
+    }
+    
+    .mobr {
+        display: inline-block;
+    }
+    .hobr {
+        display: none;
+    }
+    .abhr {
+        display: block;
+    }
+    ul {
+        text-align: left;
+    }
+    
+    signature {
+        --frame-width: 200px;
+    }
+
+}
+
+/*possibly a mobile landscraper*/
+@media screen and (orientation: landscape) and (max-width: 760px) {
+    
+}
+
+.signature {
+    text-align: right;
+    font-family: 'luckiest';
+    font-style: italic;
+    height: 200px;
+    -webkit-text-stroke: 1px var(--midness);
+    user-select:none;
+}
+
+</style>
+<style id="svgStyles">
+#frame {
+    
+    --nose-hsla: '80 100 40 1';
+    
+    --nose-color: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        var(--nose-l)
+    );
+    
+    --dark: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        calc(0.4 * var(--nose-l))
+    );
+    
+    --lid-color: #ddd;
+    
+    --body-color: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        var(--nose-l)
+    );
+    
+    --RX-color: hsla(
+        var(--nose-h),
+        var(--nose-s),
+        var(--nose-l),
+        0.2
+    );
+    
+    --outline-color: var(--dark);
+    
+    height: 300px;
+    width:  200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: var(--back-color);
+    
+    border: 10px solid var(--dark);
+    
+}
+</style>
+<link rel="stylesheet" href="d-rips.css">
+<script defer src="nanopicker.js"></script>
+</head>
+
+<body>
+<div class="holder">
+    
+  <div demo class="qr">
+    <div id="frame" class="d-rip" data-nose>
+      <svg viewBox="0 0 200 300"
+        style="height:100%;width: 100%;"
+      >
+        <use id="rex" xlink:href="../ikons/rex.svg#ikon"
+         transform="matrix(1.5 0 0 1.5 100 174)"/>
+        <ellipse cx="100" cy="300" rx="150" ry="22"
+         fill="var(--dark)"/>
+      </svg>
+    </div>
+  </div>
+  
+  <div intro class="qr">
+      <a download href="d-rips.css"><b>d-rips</b></a>
+      is a single-div of css that apparently
+      drops random streaks of paint in any
+      div with the <i>&lt;class="d&#8209;rips"&gt;</i>
+      <br><br>
+      mouse-over, or touch, the image to make it
+      seeth with color - you might have to try
+      more than once; as per yoosh, the color
+      changes on scroll
+  </div>
+  
+  <hr>
+  <div prescription class="qr">
+      set these css-var values in any element
+      that uses the d&#8209;rips class
+      <br><br>
+      
+      <pre style="color:#fff">
+.d-rips {
+
+    --drip-col:     // main color
+    --hi-color:     // extra color || white
+    --lo-color:     // extra color || black
+
+    --drip-size:      // radius of a drip
+    --drip-length:    // max length to streak
+    --frame-width:    // width of the element
+    --drip-duration:  // time dripping lasts
+
+}
+      </pre>
+  </div>
+  
+  <br><div class="qr signature d-rip" style="
+    border-top: 1px;
+    border-top-style: solid;
+    border-color: var(--darkness);
+    --drip-col: var(--darkness);
+    --lo-color: var(--midness);
+    --hi-color: var(--lightness);
+    --frame-width: 400px;
+  ">~queviva</div>
+</div>
+</body>
+
+</html>
