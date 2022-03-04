@@ -1,5 +1,4 @@
-
-.drip {
+.d-rip {
     
     --drip-col:     var(--nose-color);
     --hi-color:     var(--lid-color);
@@ -17,7 +16,7 @@
     
 }
 
-.drip::before, .drip::after {
+.d-rip::before, .d-rip::after {
 
     --w2: calc(var(--drip-size)/2);
     --L-dur: 100ms;
@@ -42,7 +41,7 @@
 
 }
 
-.drip::before {
+.d-rip::before {
     
     box-shadow: 30px -30px 0  -8px var(--lo-color,#000),
                -10px -45px 0  -5px var(--drip-col,#c30),
@@ -59,7 +58,7 @@ calc(var(--fR) + 10px) -65px 0  2px var(--drip-col,#c30);
 
 }
 
-.drip::after {
+.d-rip::after {
     
     box-shadow: 10px -23px 0  -1px var(--hi-color,#fff),
                -30px -40px 0  -8px var(--lo-color,#000),
@@ -73,13 +72,13 @@ calc(var(--fR) + 25px)  -8px 0  -8px var(--lo-color,#000);
     
 }
 
-.drip:hover::before {
+.d-rip:hover::before {
   height: var(--drip-length);
   transition: height ease-out var(--D-dur);
   animation-play-state: paused;
 }
 
-.drip:hover::after {
+.d-rip:hover::after {
     height: calc(0.6 * var(--drip-length));
     transition-delay: calc(0.2 * var(--D-dur));
     transition: height ease-out calc(1.4 * var(--D-dur));
