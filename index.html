@@ -220,7 +220,7 @@ b {
     
 }
 
-.d-rip {
+.d-rips {
     --drip-col: var(--midness);
     --lo-color: var(--blackness);
     --hi-color: var(--lightness);
@@ -234,7 +234,7 @@ b {
 <div class="holder">
     
   <div demo class="qr">
-    <div id="frame" class="d-rip" data-nose=".holder">
+    <div id="frame" class="d-rips" data-nose=".holder">
       <svg viewBox="0 0 200 300"
         style="height:100%;width:100%;"
       >
@@ -250,7 +250,7 @@ b {
       <a download href="d-rips.css"><b>d-rips.css</b></a>
       is a <i>single-div</i> of css that apparently
       drops random streaks of paint in any
-      div with the <i>&lt;class="d&#8209;rip"&gt;</i>
+      div with the <i>&lt;class="d&#8209;rips"&gt;</i>
       <br><br>
       mouse-over, or touch, the image to make it
       seeth with color - you might have to try
@@ -261,12 +261,20 @@ b {
   
   <hr>
   <div prescription class="qr">
+      include the style sheet, then
       set these css-var values in any element
       that uses the d&#8209;rips class
       <br><br>
       
-      <pre style="color:#fff">
-.d-rips {
+      <pre style="color:var(--lightness)">
+          
+&lt;link rel="stylesheet" href="d-rips.css"&gt;
+
+&lt;div id="sample" class="d-rips"&gt; ... &lt;/div&gt;
+
+&lt;style&gt;
+
+#sample {
 
     --drip-col:     // main color
     --hi-color:     // extra color || white
@@ -278,6 +286,8 @@ b {
     --drip-duration:  // time dripping lasts
 
 }
+&lt;style&gt;
+
       </pre>
   </div>
   
@@ -291,7 +301,7 @@ b {
   </div>
   
   <br>
-  <div class="qr signature d-rip" style="
+  <div class="qr signature d-rips" style="
     border-top: 1px;
     border-top-style: solid;
     border-color: var(--darkness);
