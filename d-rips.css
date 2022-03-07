@@ -22,11 +22,9 @@
     --L-dur: 100ms;
     --S-dur: 173ms;
     --D-dur: var(--drip-duration);
-    --fw: var(--frame-width);
-    --fL: calc(-0.6 * var(--fw));
-    --fR: calc( 1.1 * var(--fw));
+    --fL: calc(-0.6 * var(--frame-width));
 
-    content: "";
+    content: '';
     position: absolute;
     transform-origin: 50% 0%;
     top: calc(-1 * var(--drip-size));
@@ -43,32 +41,38 @@
 
 .d-rips::before {
     
-    box-shadow: 30px -30px 0  -8px var(--lo-color,#000),
-               -10px -45px 0  -5px var(--drip-col,#c30),
+    box-shadow:    30px  -30px 0 -8px var(--lo-color, #000),
+                  -10px  -45px 0 -5px var(--drip-col, #c30),
                
-calc(var(--fL) + 10px) -25px 0 -5px var(--lo-color,#000),
-calc(var(--fL) -  0px) -15px 0  1px var(--drip-col,#c30),
-calc(var(--fL) - 20px) -35px 0 -8px var(--drip-col,#c30),
+calc(  var(--fL) + 10px) -25px 0 -5px var(--lo-color, #000),
+calc(  var(--fL) -  0px) -15px 0  1px var(--drip-col, #c30),
+calc(  var(--fL) - 20px) -35px 0 -8px var(--drip-col, #c30),
                 
-calc(var(--fR) +  0px) -45px 0  2px var(--lo-color,#000),
-calc(var(--fR) + 10px) -65px 0  2px var(--drip-col,#c30);
+calc(2*var(--fL) -  0px) -45px 0  2px var(--lo-color, #000),
+calc(2*var(--fL) - 10px) -65px 0  2px var(--drip-col, #c30);
                 
     --L-dur: 87ms;
+    --L-val: calc(2.2 * var(--frame-width));
+    
     --S-dur: 59ms;
+    --S-val: 1.0;
 
 }
 
 .d-rips::after {
     
-    box-shadow: 10px -23px 0  -1px var(--hi-color,#fff),
-               -30px -40px 0  -8px var(--lo-color,#000),
+    box-shadow:  10px  -23px 0  -1px var(--hi-color, #fff),
+                -30px  -40px 0  -8px var(--lo-color, #000),
                 
-calc(var(--fR) - 20px) -22px 0  -8px var(--hi-color,#fff),
-calc(var(--fR) +  0px)  -9px 0   3px var(--drip-col,#c30),
-calc(var(--fR) + 25px)  -8px 0  -8px var(--lo-color,#000);
+calc(var(--fL) - 20px) -22px 0  -8px var(--hi-color, #fff),
+calc(var(--fL) +  0px)  -9px 0   3px var(--drip-col, #c30),
+calc(var(--fL) + 25px)  -8px 0  -8px var(--lo-color, #000);
                
     --L-dur: 47ms;
+    --L-val: calc(1.5 * var(--frame-width));
+    
     --S-dur: 139ms;
+    --S-val: 1.1;
     
 }
 
@@ -87,21 +91,21 @@ calc(var(--fR) + 25px)  -8px 0  -8px var(--lo-color,#000);
 
 @keyframes ani-left {
     0% {
-        left: calc(-0.5 * var(--fw));
+        left: 0px;
     }
     100% {
-        left: calc(1.8 * var(--fw));
+        left: var(--L-val);
     }
 }
 
 @keyframes ani-scale {
     0% {
-        transform: scale(0.6);
+        transform: scale(0.5);
     }
     99% {
-        transform: scale(1.1);
+        transform: scale(var(--S-val));
     }
     100%{
-        transform: scale(2.2);
+        transform: scale(calc(2.2 * var(--S-val)));
     }
 }
